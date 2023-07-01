@@ -88,6 +88,8 @@ func GetSnaptik(tiktok string) (response SnaptikResponse, err error) {
 		if ok {
 			if strings.Contains(href, "https://cdn.snaptik.app") {
 				response.VideoUrl = append(response.VideoUrl, href)
+			} else if strings.Contains(href, "/file.php?type=dl") {
+				response.VideoUrl = append(response.VideoUrl, href)
 			}
 		}
 		selection.Next()
